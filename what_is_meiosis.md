@@ -19,3 +19,7 @@ You choose what you like to use for creating views. Meiosis organizes how the da
 Meiosis boils down to creating components. Specify functions for each part of the process, and Meiosis takes care of the wiring. Every part of the process is optional, so you can specify what you need for each component.
 
 The best part is that you end up with *plain JavaScript functions*. Meiosis wires things together, but most of your code is not tied directly to Meiosis. The only library-specific code is the view code, and you get to choose whichever library you like. As can be seen in some of the examples, you could switch from one library to another and only change the view code. The rest of the code (the model, receiving updates, actions, and so on) *remains the same*.
+
+## A Quick Example
+
+To give you a more concrete idea of Meiosis, let's look at a quick example.
