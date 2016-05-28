@@ -21,7 +21,3 @@ Meiosis boils down to creating components. Specify functions for each part of th
 The general idea behind Meiosis is Model-View-Update. Start with a model. Create a function that creates the view. Meiosis will pass the model to that function, along with an *actions* object that has a `sendUpdate` to trigger updates. Finally, create a function that receives updates and determines the resulting model. Meiosis calls the view with the updated model.
 
 The best part is that you end up with *plain JavaScript functions*. Meiosis wires things together, but most of your code is not tied directly to Meiosis. The only library-specific code is the view code, and you get to choose whichever library you like. As can be seen in some of the examples, you could switch from one library to another and only change the view code. The rest of the code (the model, receiving updates, actions, and so on) *remains the same*.
-
-## A Quick Example
-
-To give you a more concrete idea of Meiosis, let's look at a quick example. We'll create a simple counter with buttons to increment and decrement the value.
