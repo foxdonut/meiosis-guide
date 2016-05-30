@@ -7,6 +7,6 @@
 * [Counter Example with React](counter_example_with_react.md)
 * [Creating Actions](creating_actions.md)
 * [Adding View Models](adding_view_models.md)
-* [Tracing and Debugging with Meiosis-Tracer](tracing_and_debugging_with_meiosis-tracer.md)
 * [Automatic Next Updates](automatic_next_updates.md)
+* [Tracing and Debugging with Meiosis-Tracer](tracing_and_debugging_with_meiosis-tracer.md)
 
