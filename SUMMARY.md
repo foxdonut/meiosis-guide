@@ -8,5 +8,5 @@
 * [Creating Actions](creating_actions.md)
 * [Adding View Models](adding_view_models.md)
 * [Tracing and Debugging with Meiosis-Tracer](tracing_and_debugging_with_meiosis-tracer.md)
-* Automatic Next Updates
+* [Automatic Next Updates](automatic_next_updates.md)
 
