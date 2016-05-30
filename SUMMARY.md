@@ -8,6 +8,6 @@
 * [Creating Actions](creating_actions.md)
 * [Adding View Models](adding_view_models.md)
 * [Automatic Next Updates](automatic_next_updates.md)
-* [Tracing and Debugging with Meiosis-Tracer](tracing_and_debugging_with_meiosis-tracer.md)
 * [Post Render Functions](post_render_functions.md)
+* [Tracing and Debugging with Meiosis-Tracer](tracing_and_debugging_with_meiosis-tracer.md)
 
