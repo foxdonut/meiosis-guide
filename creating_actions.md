@@ -57,3 +57,7 @@ var Main = createComponent({
 ```
 
 Now, functions that are given the `actions` object will be able to call `increaseCounter`, `decreaseCounter`, `addValue`, and `sendUpdate`.
+
+## Examples
+
+The [todomvc](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc), [todo-list](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list), and [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher) examples create `actions` objects.
