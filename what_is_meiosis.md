@@ -9,7 +9,7 @@ Meiosis is a *small*, *dependency-free* library that helps you organize the data
 
 You choose what you like to use for creating views. Meiosis organizes how the data flows in your application by:
 
-- Creating and maintaining a single root model
+- Creating and maintaining a *single root model*
 - Letting you hook in function(s) that receive updates and change the model accordingly
 - Passing action objects to your views so that they can send updates
 - Automatically re-rendering your views
