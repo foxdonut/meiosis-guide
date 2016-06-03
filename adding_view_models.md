@@ -1,4 +1,4 @@
-# Adding View Models
+# Adding a View Model
 
 Sometimes it may be convenient to write a *view model* function for a component. Meiosis will call this function with the updated model after `receiveUpdate`, and before calling `view`, so that the function can augment the model with properties that are convenient for the view.
 
