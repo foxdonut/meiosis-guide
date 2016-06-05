@@ -8,4 +8,10 @@ Meiosis collects and combines changes made from `receiveUpdate` functions and me
 
 ## Refusing Updates
 
-In some situations, you may want to *refuse* an update.
+In some situations, you may want to *refuse* an update. This is more than just returning an unchanged model from the `receiveUpdate` function. It's also stopping the rest of the chain of functions: other `receiveUpdate`s, the `viewModel` and `view`, rendering the view to refresh the UI, and so on.
+
+You can tell Meiosis to refuse an update by returning `meiosis.REFUSE_UPDATE` from the `receiveUpdate` function.
+
+An example of this is in the [todomvc example](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc). When the user is editing an existing todo, both pressing Enter and focusing outside of the text field (triggering the `blur` event) save the todo. But pressing Enter also triggers a `blur` event after saving the todo, triggering a duplicate `saveTodo` update. To guard against this, the `receiveUpdate` function only accepts `saveTodo` if the todo is being edited. Otherwise, it returns `meiosis.REFUSE_UPDATE`.
+
+Another situation where refusing an update may be useful is to address a long-running asynchronous action. Say the user has triggered such an action and then decides to cancel it before it has finished. Afterwards, the long-running action finally completes and triggers another update. The `receiveUpdate` can determine that the action was cancelled, and so refuse that update.
