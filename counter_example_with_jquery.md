@@ -29,10 +29,10 @@ Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can
 
 The way you tell Meiosis how you want to create your views is by specifying a *renderer*. Meiosis currently provides renderers for:
 
-- Vanilla JS (String concatenation or template engines such as Handlebars)
-- React
-- Snabbdom
-- Mithril
+- Vanilla JS (String concatenation or template engines such as [Handlebars](http://handlebarsjs.com)
+- [React](https://facebook.github.io/react/)
+- [Snabbdom](http://github.com/paldepind/snabbdom)
+- [Mithril](http://mithril.js.org)
 
 Implementing a renderer for other libraries is easy. Refer to the [as yet unwritten] *Implementing a Renderer* chapter.
 
