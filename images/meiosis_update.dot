@@ -1,31 +1,27 @@
 digraph meiosis_update {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
-    \l  viewModel: function(model) \{ ... \},
     \l  view: function(model, actions) \{ ... \},
-    \l  actions: function(sendUpdate) \{ ... \},
-    \l  receiveUpdate: function(model, update) \{ ... \},
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions) \{ ... \},
+    \l  actions: function(sendUpdate) \{ ... \},
+    \l  receiveUpdate: function(model, update) \{ ... \},
     \l  nextUpdate: function(model, update, actions) \{ ... \}
     \l\});\l\l"]
 
   trigger [label = "view, event handler, ..."]
   sendUpdate [label = "actions.sendUpdate(update)", fontname=Hack]
   receiveUpdate [label = "receiveUpdate(model, update)", fontname=Hack]
-  viewModel [label = "viewModel(model)", fontname=Hack]
   view [label = "view(model, actions)", fontname=Hack]
   render [style=filled, color=lightgreen]
   postRender [label = "postRender(view)", fontname=Hack]
   nextUpdate [label = "nextUpdate(model, update, actions)", fontname=Hack]
 
-  {rank=same; viewModel view}
-  {rank=same; postRender nextUpdate}
+  {rank=same; render postRender nextUpdate}
 
   createComponent -> trigger [arrowhead=none, arrowtail=empty, color=white]
   trigger -> sendUpdate [label = " calls"]
   sendUpdate -> receiveUpdate [label = " update"]
-  receiveUpdate -> viewModel [label = " model"]
-  viewModel -> view [label = " model"]
+  receiveUpdate -> view [label = " model"]
   view -> render [label = " view"]
   render -> postRender
   postRender -> nextUpdate

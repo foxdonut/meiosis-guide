@@ -1,28 +1,24 @@
 digraph meiosis_init {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
-    \l  viewModel: function(model) \{ ... \},
     \l  view: function(model, actions) \{ ... \},
-    \l  actions: function(sendUpdate) \{ ... \},
-    \l  receiveUpdate: function(model, update) \{ ... \},
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions) \{ ... \},
+    \l  actions: function(sendUpdate) \{ ... \},
+    \l  receiveUpdate: function(model, update) \{ ... \},
     \l  nextUpdate: function(model, update, actions) \{ ... \}
     \l\});\l\l"]
 
   initialModel [fontname=Hack]
-  viewModel [label = "viewModel(model)", fontname=Hack]
   view [label = "view(model, actions)", fontname=Hack]
   render [style=filled, color=lightgreen]
   postRender [label = "postRender(view)", fontname=Hack]
   ready [label = "ready(actions)", fontname=Hack]
 
-  {rank=same; viewModel view}
-  {rank=same; postRender ready}
+  {rank=same; render postRender ready}
 
   createComponent -> initialModel [arrowhead=none, arrowtail=empty, color=white]
-  initialModel -> viewModel [label = " model"]
-  viewModel -> view [label = " model"]
+  initialModel -> view [label = " model"]
   view -> render [label = " view"]
   render -> postRender
-  ready -> postRender [dir = "back"]
+  postRender -> ready
 }
