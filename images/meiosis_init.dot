@@ -1,9 +1,9 @@
 digraph meiosis_init {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
+    \l  actions: function(sendUpdate) \{ ... \},
     \l  view: function(model, actions) \{ ... \},
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions) \{ ... \},
-    \l  actions: function(sendUpdate) \{ ... \},
     \l  receiveUpdate: function(model, update) \{ ... \},
     \l  nextUpdate: function(model, update, actions) \{ ... \}
     \l\});\l\l"]
