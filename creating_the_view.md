@@ -65,7 +65,7 @@ export default function(Meiosis) {
 
 This example demonstrates two ways of calling nested components in JSX. First, as a JSX component: `<TodoForm {...model}/>`. Second, as a function: `{TodoList(model)}`. Notice that while we pass the `model`, there is no need to pass the `actions` object. Meiosis will take care of that. In fact, if each component has configured a specialized `actions` object, they will each get their own version with the functions that they have defined.
 
-Here is another nested component from the [labeled-slides example], written with Snabbdom:
+Here is another nested component from the [labeled-sliders example](https://github.com/foxdonut/meiosis-examples/blob/master/examples/labeled-sliders/sliderContainer/view.js), written with Snabbdom:
 
 ```javascript
 import h from "snabbdom/h";
