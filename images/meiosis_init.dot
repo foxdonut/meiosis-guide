@@ -5,7 +5,7 @@ digraph meiosis_init {
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},
     \l  receive: function(model, proposal) \{ ... \},
-    \l  nextAction: function(model, proposal, actions) \{ ... \}
+    \l  nextAction: function(model, proposal, actions/propose) \{ ... \}
     \l\});\l\l"]
 
   initialModel [fontname=Hack]

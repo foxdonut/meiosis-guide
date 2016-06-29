@@ -5,7 +5,7 @@ digraph meiosis_update {
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},
     \l  receive: function(model, proposal) \{ ... \},
-    \l  nextAction: function(model, proposal, actions) \{ ... \}
+    \l  nextAction: function(model, proposal, actions/propose) \{ ... \}
     \l\});\l\l"]
 
   trigger [label = "view, event handler, ..."]
@@ -14,7 +14,7 @@ digraph meiosis_update {
   view [label = "view(model, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
   postRender [label = "postRender(view)", fontname=Hack]
-  nextAction [label = "nextAction(model, proposal, actions)", fontname=Hack]
+  nextAction [label = "nextAction(model, proposal, actions/propose)", fontname=Hack]
 
   {rank=same; render postRender nextAction}
 
