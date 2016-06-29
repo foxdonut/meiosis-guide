@@ -1,29 +1,29 @@
 digraph meiosis_update {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
-    \l  actions: function(sendUpdate) \{ ... \},
-    \l  view: function(model, actions) \{ ... \},
+    \l  actions: function(propose) \{ ... \},
+    \l  view: function(model, actions/propose) \{ ... \},
     \l  postRender: function(view) \{ ... \},
-    \l  ready: function(actions) \{ ... \},
-    \l  receiveUpdate: function(model, update) \{ ... \},
-    \l  nextUpdate: function(model, update, actions) \{ ... \}
+    \l  ready: function(actions/propose) \{ ... \},
+    \l  receive: function(model, proposal) \{ ... \},
+    \l  nextAction: function(model, proposal, actions) \{ ... \}
     \l\});\l\l"]
 
   trigger [label = "view, event handler, ..."]
-  sendUpdate [label = "actions.sendUpdate(update)", fontname=Hack]
-  receiveUpdate [label = "receiveUpdate(model, update)", fontname=Hack]
-  view [label = "view(model, actions)", fontname=Hack]
+  propose [label = "propose(proposal)", fontname=Hack]
+  receive [label = "receive(model, proposal)", fontname=Hack]
+  view [label = "view(model, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
   postRender [label = "postRender(view)", fontname=Hack]
-  nextUpdate [label = "nextUpdate(model, update, actions)", fontname=Hack]
+  nextAction [label = "nextAction(model, proposal, actions)", fontname=Hack]
 
-  {rank=same; render postRender nextUpdate}
+  {rank=same; render postRender nextAction}
 
   createComponent -> trigger [arrowhead=none, arrowtail=empty, color=white]
-  trigger -> sendUpdate [label = " calls"]
-  sendUpdate -> receiveUpdate [label = " update"]
-  receiveUpdate -> view [label = " model"]
+  trigger -> propose [label = " calls"]
+  propose -> receive [label = " proposal"]
+  receive -> view [label = " model"]
   view -> render [label = " view"]
   render -> postRender
-  postRender -> nextUpdate
-  nextUpdate -> sendUpdate [label = " calls"]
+  postRender -> nextAction
+  nextAction -> propose [label = " calls"]
 }

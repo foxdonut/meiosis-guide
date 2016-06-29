@@ -1,18 +1,18 @@
 digraph meiosis_init {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
-    \l  actions: function(sendUpdate) \{ ... \},
-    \l  view: function(model, actions) \{ ... \},
+    \l  actions: function(propose) \{ ... \},
+    \l  view: function(model, actions/propose) \{ ... \},
     \l  postRender: function(view) \{ ... \},
-    \l  ready: function(actions) \{ ... \},
-    \l  receiveUpdate: function(model, update) \{ ... \},
-    \l  nextUpdate: function(model, update, actions) \{ ... \}
+    \l  ready: function(actions/propose) \{ ... \},
+    \l  receive: function(model, proposal) \{ ... \},
+    \l  nextAction: function(model, proposal, actions) \{ ... \}
     \l\});\l\l"]
 
   initialModel [fontname=Hack]
-  view [label = "view(model, actions)", fontname=Hack]
+  view [label = "view(model, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
   postRender [label = "postRender(view)", fontname=Hack]
-  ready [label = "ready(actions)", fontname=Hack]
+  ready [label = "ready(actions/propose)", fontname=Hack]
 
   {rank=same; render postRender ready}
 
