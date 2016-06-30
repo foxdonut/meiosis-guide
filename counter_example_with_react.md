@@ -12,15 +12,15 @@ The model for the counter is the same:
 var initialModel = { counter: 0 };
 ```
 
-As you might expect, the view function is different. Since we're using React, we'll use JSX to render the view (although JSX is *not* required to use React; see [JSnoX](https://github.com/af/JSnoX) for example.)
+As you might expect, the view function is different. Since we're using React, we'll use JSX to render the view (although JSX is *not* required to use React; one example is [JSnoX](https://github.com/af/JSnoX).)
 
 ```javascript
-var view = function(model, actions) {
+var view = function(model, propose) {
   var onInc = function(_evt) {
-    actions.sendUpdate({ add: 10 });
+    propose({ add: 10 });
   };
   var onDecr = function(_evt) {
-    actions.sendUpdate({ add: -10 });
+    propose({ add: -10 });
   };
   return (
     <div>
@@ -34,7 +34,7 @@ var view = function(model, actions) {
 };
 ```
 
-This time, the function accepts the model **and** the `actions` object because React makes it easy to bind event handlers to view elements. We call `sendUpdate` in the same way as we did previously. However, because we've attached the event handlers here, we won't be needing a `ready` function.
+This time, the function accepts the model **and** the `propose` function because React makes it easy to bind event handlers to view elements. We call `propose` in the same way as we did previously. However, because we've attached the event handlers here, we won't be needing a `ready` function.
 
 ## Specifying a Renderer
 
@@ -54,11 +54,11 @@ Having initialized Meiosis, we can create the component:
 var Main = Meiosis.createComponent({
   initialModel: initialModel,
   view: view,
-  receiveUpdate: receiveUpdate
+  receive: receive
 });
 ```
 
-The `initialModel` and `receiveUpdate` functions are the same as the ones we had from the previous chapter. Only the `view` has changed, to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function. We're ready to run Meiosis:
+The `initialModel` and `receive` functions are the same as the ones we had from the previous chapter. Only the `view` has changed, to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function. We're ready to run Meiosis:
 
 ```javascript
 Meiosis.run(Main);
@@ -73,12 +73,12 @@ To recap, here is the full code for the example:
 ```javascript
 var initialModel = { counter: 0 };
 
-var view = function(model, actions) {
+var view = function(model, propose) {
   var onInc = function(_evt) {
-    actions.sendUpdate({ add: 10 });
+    propose({ add: 10 });
   };
   var onDecr = function(_evt) {
-    actions.sendUpdate({ add: -10 });
+    propose({ add: -10 });
   };
   return (
     <div>
@@ -91,14 +91,14 @@ var view = function(model, actions) {
   );
 };
 
-var receiveUpdate = function(model, update) {
-  return { counter: model.counter + update.add };
+var receive = function(model, proposal) {
+  return { counter: model.counter + proposal.add };
 };
 
 var Main = Meiosis.createComponent({
   initialModel: initialModel,
   view: view,
-  receiveUpdate: receiveUpdate
+  receive: receive
 });
 
 Meiosis.run(Main);
