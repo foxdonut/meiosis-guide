@@ -29,13 +29,13 @@ Meiosis will render the view into that `div`.
 
 ## Creating a `view` Function
 
-Each component that you create can have a `view` function. Meiosis calls it with `(model, actions)` so that you can return the view representation of the model, and call functions on the `actions` object.
+Each component that you create can have a `view` function. Meiosis calls it with `(model, propose)` so that you can return the view representation of the model, and call the `propose` function.
 
 The nature of what you return from the `view` function depends on the view library that you chose for your views. Whether you chose React, Snabbdom, Mithril, plain JavaScript, or anything else, you return an object that is compatible with the chosen library.
 
 ## Nested components
 
-When you call `Meiosis.createComponent({...})`, the returned component is the view function with the `actions` object already provided. Thus it is a function of the model that you can call from other components.
+When you call `Meiosis.createComponent({...})`, the returned component is the view function with `propose` already provided. Thus it is a function of the model that you can call from other components.
 
 The [todo-list example](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list) has a `TodoMain` component that uses two other components, `TodoForm` and `TodoList`:
 
@@ -63,7 +63,7 @@ export default function(Meiosis) {
 }
 ```
 
-This example demonstrates two ways of calling nested components in JSX. First, as a JSX component: `<TodoForm {...model}/>`. Second, as a function: `{TodoList(model)}`. Notice that while we pass the `model`, there is no need to pass the `actions` object. Meiosis will take care of that. In fact, if each component has configured a specialized `actions` object, they will each get their own version with the functions that they have defined.
+This example demonstrates two ways of calling nested components in JSX. First, as a JSX component: `<TodoForm {...model}/>`. Second, as a function: `{TodoList(model)}`. Notice that while we pass the `model`, there is no need to pass the `propose` function. Meiosis will take care of that. In fact, if each component has configured a specialized `actions` object, they will each get their own version with the functions that they have defined.
 
 Here is another nested component from the [labeled-sliders example](https://github.com/foxdonut/meiosis-examples/blob/master/examples/labeled-sliders/sliderContainer/view.js), written with Snabbdom:
 
@@ -72,9 +72,9 @@ import h from "snabbdom/h";
 
 import { Action } from "./actions";
 
-const view = LabeledSlider => (model, actions) => {
-  const onAddMeasurement = _evt => actions.sendUpdate(Action.AddMeasurement());
-  const onRemoveMeasurement = id => actions.sendUpdate(Action.RemoveMeasurement(id));
+const view = LabeledSlider => (model, propose) => {
+  const onAddMeasurement = _evt => propose(Action.AddMeasurement());
+  const onRemoveMeasurement = id => propose(Action.RemoveMeasurement(id));
 
   const renderMeasurement = (measurement, index) =>
     h("div", {key: measurement.id, style: {border: "1px solid gray"}, id: measurement.id}, [
