@@ -1,6 +1,6 @@
 # Creating Actions
 
-As we saw in the counter example from the previous chapters, Meiosis passes an `actions` object to your functions. You can call `sendUpdate` to trigger an update. Your `receiveUpdate` function gets called with updates and decides how to change the model.
+As we saw in the counter example from the previous chapters, Meiosis passes a `propose` function to your view. You can call it to trigger a proposal. Your `receive` function gets called with the proposal and decides how to change the model.
 
 ## Updates: Data or Actions?
 
