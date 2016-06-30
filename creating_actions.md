@@ -1,46 +1,44 @@
 # Creating Actions
 
-As we saw in the counter example from the previous chapters, Meiosis passes a `propose` function to your view. You can call it to trigger a proposal. Your `receive` function gets called with the proposal and decides how to change the model.
+As we saw in the counter example from the previous chapters, Meiosis passes `propose` to your `view` and `ready` functions. You can call `propose` to trigger a proposal. Your `receive` function gets called with the proposal and decides how to change the model.
 
 ## Updates: Data or Actions?
 
-In the counter example, the *update* that we send is a piece of data, such as `{ add: 1 }`. The `receiveUpdate` function then adds that value to the counter.
+In the counter example, the *proposal* that we send is `{ add: 1 }`. The `receive` function then adds that value to the counter.
 
-You can send whatever you want as an update. You may decide that you prefer sending an *action* as an update, such as a [Flux Standard Action](https://github.com/acdlite/flux-standard-action), that is, an object with a `type` and a `payload`. In that case, you would perhaps send `{ type: "ADD", payload: 1 }` or even just `{ type: "INCREMENT" }`. The `receiveUpdate` function would use the `type` and `payload` to determine how to change the model.
-
-Another option would be to use [union-type](https://github.com/paldepind/union-type) to define possible actions. The `receiveUpdate` function would then look like:
+Another option would be to use [union-type](https://github.com/paldepind/union-type) to define possible proposals. The `receive` function would then look like:
 
 ```javascript
 var Action = Type({ ... });
 
-var receiveUpdate = function(model, update) {
+var receive = function(model, proposal) {
   return Action.case({
     ...
-  }, update);
+  }, proposal);
 };
 ```
 
-The point is, you are free to choose how to send and receive updates.
+In any case, you might prefer to hide the details of proposals from the view. For that, you can create an `actions` object.
 
 ## Specifying the `actions` Object
 
-You can also create the `actions` object yourself. It will still have the `sendUpdate` function, but it will also contain the action functions that you define. You might prefer having these specific functions for certain actions, instead of just one generic `sendUpdate` function. Further, you might decide to encapsulate calls to services (AJAX calls, for example) within these actions.
+You can create the `actions` object to encapsulate the details of how you construct proposals. You might prefer having these specific functions for your actions, instead of just one generic `propose` function. Further, you might decide to encapsulate calls to services (AJAX calls, for example) within these actions.
 
-This allows to encapsulate the details of what to send in the update in named functions that the view event handler can call directly. In the counter example, this would mean calling functions like `actions.increaseCounter()` and `actions.decreaseCounter()` instead of `actions.sendUpdate({ add: 1 })`.
+This allows to encapsulate the details of what proposal to send, in named functions that the view can call directly. In the counter example, this would mean calling functions like `actions.increaseCounter()` and `actions.decreaseCounter()` instead of `propose({ add: 1 })`.
 
-To create the `actions` object, simply write a function that accepts `sendUpdate` as a parameter and returns an object with the actions that you wish to make available. For example:
+To create the `actions` object, simply write a function that accepts `propose` as a parameter and returns an object with the actions that you wish to make available. For example:
 
 ```javascript
-var actions = function(sendUpdate) {
+var actions = function(propose) {
   return {
     increaseCounter: function() {
-      sendUpdate({ add: 1 });
+      propose({ add: 1 });
     },
     decreaseCounter: function() {
-      sendUpdate({ add: -1 });
+      propose({ add: -1 });
     },
     addValue: function(value) {
-      sendUpdate({ add: value });
+      propose({ add: value });
     }
   };
 };
@@ -56,7 +54,7 @@ var Main = createComponent({
 })
 ```
 
-Now, functions that are given the `actions` object will be able to call `increaseCounter`, `decreaseCounter`, `addValue`, and `sendUpdate`.
+Now, instead of `propose`, the `view` and `ready` functions will be given the  `actions` object and be able to call `increaseCounter`, `decreaseCounter`, and `addValue`.
 
 ## Examples
 
