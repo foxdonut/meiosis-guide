@@ -71,28 +71,28 @@ Meiosis.run(Main);
 
 Now, we will see the result of the `view` function being called with the `initialModel`.
 
-## Sending Updates
+## Sending Proposals
 
-The view renders, but the buttons don't do anything yet. For them to work, they need to *send updates*. Meiosis provides an `actions` object with a `sendUpdate` function to do exactly that.
+The view renders, but the buttons don't do anything yet. For them to work, they need to *send proposals*. Meiosis provides a `propose` function to do exactly that.
 
 Let's use jQuery to attach event handlers to the buttons. Again, note that we'll also look at how we can do this with React.
 
 When creating a component, we can indicate a `ready` function that will be called *once* after the initial view has finished rendering. This is where we attach our event handlers:
 
 ```javascript
-var ready = function(actions) {
+var ready = function(propose) {
   var $root = $(document.getElementById("app"));
 
   $root.on("click", "button#inc", function(_evt) {
-    actions.sendUpdate({ add: 1 });
+    propose({ add: 1 });
   });
   $root.on("click", "button#decr", function(_evt) {
-    actions.sendUpdate({ add: -1 });
+    propose({ add: -1 });
   });
 };
 ```
 
-Meiosis passes the `actions` object to the ready function. We use its `sendUpdate` function to send updates. In this case, the update requests to add an amount to the counter. We pass the `ready` function to `createComponent`, which is now:
+Meiosis passes the `propose` function to the `ready` function. We use it to send proposals. In this case, the proposal is to add an amount to the counter. We pass the `ready` function to `createComponent`, which is now:
 
 ```javascript
 var Main = Meiosis.createComponent({
@@ -102,26 +102,26 @@ var Main = Meiosis.createComponent({
 });
 ```
 
-Let's finish the example by receiving the updates.
+Let's finish the example by receiving the proposals.
 
-## Receiving Updates
+## Receiving Proposals
 
-Finally, we need a function to receive updates and decide how to change the model:
+Finally, we need a function to receive proposals and decide how to change the model:
 
 ```javascript
-var receiveUpdate = function(model, update) {
-  return { counter: model.counter + update.add };
+var receive = function(model, proposal) {
+  return { counter: model.counter + proposal.add };
 };
 ```
 
-Not surprisingly, we use `receiveUpdate` to pass our function to `createComponent`:
+We pass this `receive` function to `createComponent`:
 
 ```javascript
 var Main = Meiosis.createComponent({
   initialModel: initialModel,
   view: view,
   ready: ready,
-  receiveUpdate: receiveUpdate
+  receive: receive
 });
 ```
 
@@ -139,18 +139,18 @@ var view = function(model) {
     "<div><button id='inc'>+</button> <button id='decr'>-</button></div>";
 };
 
-var receiveUpdate = function(model, update) {
-  return { counter: model.counter + update.add };
+var receive = function(model, proposal) {
+  return { counter: model.counter + proposal.add };
 };
 
-var ready = function(actions) {
+var ready = function(propose) {
   var $root = $(document.getElementById("app"));
 
   $root.on("click", "button#inc", function(_evt) {
-    actions.sendUpdate({ add: 1 });
+    propose({ add: 1 });
   });
   $root.on("click", "button#decr", function(_evt) {
-    actions.sendUpdate({ add: -1 });
+    propose({ add: -1 });
   });
 };
 
@@ -160,7 +160,7 @@ var Main = Meiosis.createComponent({
   initialModel: initialModel,
   view: view,
   ready: ready,
-  receiveUpdate: receiveUpdate
+  receive: receive
 });
 
 Meiosis.run(Main);
