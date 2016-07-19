@@ -4,6 +4,7 @@ Meiosis is a *small*, *dependency-free* library that helps you organize the data
 
 - React
 - Virtual DOM libraries (Snabbdom, Mithril, ...)
+- Reactive template libraries (Riot, Vue, ...)
 - jQuery
 - Or just plain Vanilla JS!
 
