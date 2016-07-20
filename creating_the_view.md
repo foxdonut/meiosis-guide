@@ -7,9 +7,11 @@ In Meiosis, the `view` function returns a view object that corresponds to the li
 The way you tell Meiosis how you want to create your views is by specifying a *renderer*. Meiosis currently provides renderers for:
 
 - Vanilla JS (String concatenation or template engines such as [Handlebars](http://handlebarsjs.com)
-- [React](https://facebook.github.io/react/)
-- [Snabbdom](http://github.com/paldepind/snabbdom)
 - [Mithril](http://mithril.js.org)
+- [React](https://facebook.github.io/react/)
+- [Riot](http://riotjs.com)
+- [Snabbdom](http://github.com/paldepind/snabbdom)
+- [Vue](http://vuejs.org)
 
 Implementing a renderer for other libraries is easy. Refer to the [as yet unwritten] *Implementing a Renderer* chapter.
 

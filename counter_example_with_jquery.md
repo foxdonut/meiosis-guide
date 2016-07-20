@@ -23,7 +23,7 @@ var view = function(model) {
 
 The function accepts the model as a parameter and returns the view, which displays the counter and buttons to increase and decrease the value.
 
-Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views: virtual DOM libraries such React, Snabbdom, and Mithril, templating engines such as Handlebars, or anything else. We'll switch to React later in this example. The point is, you don't *need* to use any particular library; if creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
+Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views: virtual DOM libraries such React, Snabbdom, and Mithril, reactive template libraries such as Riot and Vue, templating engines such as Handlebars, or anything else. We'll switch to React later in this example. The point is, you don't *need* to use any particular library; if creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
 
 ## Specifying a Renderer
 
