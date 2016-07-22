@@ -14,8 +14,7 @@ You choose what you like to use for creating views. Meiosis organizes how the da
 - Letting you hook in function(s) that receive *proposals* and change the model accordingly
 - Passing action objects to your views so that they can trigger proposals
 - Automatically re-rendering your views
-- Letting you define logic for actions that should automatically trigger
-- And more.
+- Letting you define logic for actions that should automatically trigger.
 
 Meiosis boils down to creating components. Specify functions for each part of the process, and Meiosis takes care of the wiring. Every part of the process is optional, so you can specify what you need for each component.
 
