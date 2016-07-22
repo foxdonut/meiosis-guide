@@ -21,59 +21,61 @@ var view = function(model) {
 };
 ```
 
-The function accepts the model as a parameter and returns the view, which displays the counter and buttons to increase and decrease the value.
+The function accepts the model as a parameter and returns the view. The view displays the counter and buttons to increase and decrease the value.
 
-Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views: virtual DOM libraries such React, Snabbdom, and Mithril, reactive template libraries such as Riot and Vue, templating engines such as Handlebars, or anything else. We'll switch to React later in this example. The point is, you don't *need* to use any particular library; if creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
+Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views. Virtual DOM libraries such React, Snabbdom, and Mithril. Reactive template libraries such as Riot and Vue. Templating engines such as Handlebars. Or anything else. We'll switch to React later in this example. The point is, you don't *need* to use any particular library. If creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
 
 ## Specifying a Renderer
 
 The way you tell Meiosis how you want to create your views is by specifying a *renderer*. Meiosis currently provides renderers for:
 
-- Vanilla JS (String concatenation or template engines such as [Handlebars](http://handlebarsjs.com)
-- [React](https://facebook.github.io/react/)
-- [Snabbdom](http://github.com/paldepind/snabbdom)
+- Vanilla JS (String concatenation, or template engines such as [Handlebars](http://handlebarsjs.com))
 - [Mithril](http://mithril.js.org)
+- [React](https://facebook.github.io/react/)
+- [Riot](http://riotjs.com)
+- [Snabbdom](http://github.com/paldepind/snabbdom)
+- [Vue](http://vuejs.org)
 
 Implementing a renderer for other libraries is easy. Refer to the [as yet unwritten] *Implementing a Renderer* chapter.
 
 Let's specify the Vanilla JS renderer for our counter example:
 
 ```javascript
-var Meiosis = meiosis.init(meiosisVanillaJs.renderer.intoId("app"));
+var renderer = meiosisVanillaJs.renderer();
 ```
-
-We've initialized Meiosis with the Vanilla JS renderer and told it to render into the element with the `app` id. We just need a container with that id in our HTML page:
-
-```html
-<div id="app"></div>
-```
-
-Our view will be rendered into that `div`.
 
 ## Running Meiosis
 
-Now that we have initialized Meiosis, we can create a component:
+Next, we'll create a component:
 
 ```javascript
-var Main = Meiosis.createComponent({
+var Main = meiosis.createComponent({
   initialModel: initialModel,
   view: view
 });
 ```
 
-The `createComponent` function accepts several properties, all of which are optional. Here, we've indicated the `initialModel` and the `view` function.
+The `createComponent` function accepts properties, all of which are optional. Here, we've indicated the `initialModel` and the `view` function.
 
-The `Main` component that we've created is also the *root*, or *top-level*, component of our application. We need to pass it to `Meiosis.run` to start Meiosis:
+The `Main` component that we've created is also the *root*, or *top-level*, component of our application. We need to pass the renderer and the root component to `meiosis.run` to start Meiosis:
 
 ```javascript
-Meiosis.run(Main);
+meiosis.run(renderer.intoId(document, "app"), Main);
 ```
 
-Now, we will see the result of the `view` function being called with the `initialModel`.
+We've initialized the renderer and told it to render into the element with the `app` id. We just need a container with that id in our HTML page:
+
+```html
+<div id="app"></div>
+```
+
+Our view will render into that `div`.
+
+Now, we will see the result of calling the `view` function with the `initialModel`.
 
 ## Sending Proposals
 
-The view renders, but the buttons don't do anything yet. For them to work, they need to *send proposals*. Meiosis provides a `propose` function to do exactly that.
+The view renders, but the buttons don't do anything yet. For them to work, they need to *send proposals*. Meiosis provides a `propose` function to do precisely that.
 
 Let's use jQuery to attach event handlers to the buttons. Again, note that we'll also look at how we can do this with React.
 
@@ -154,16 +156,16 @@ var ready = function(propose) {
   });
 };
 
-var Meiosis = meiosis.init(meiosisVanillaJs.renderer.intoId("app"));
-
-var Main = Meiosis.createComponent({
+var Main = meiosis.createComponent({
   initialModel: initialModel,
   view: view,
   ready: ready,
   receive: receive
 });
 
-Meiosis.run(Main);
+var renderer = meiosisVanillaJs.renderer();
+
+meiosis.run(renderer.intoId(document, "app"), Main);
 ```
 
 You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
