@@ -11,7 +11,7 @@ Let's look at each option in more detail.
 
 ## Using a plain `<script>` tag
 
-You can add Meiosis to your HTML page by downloading the JavaScript file from the [Meiosis builds](http://meiosis.js.org/builds) page, saving it to your project, and loading it with a `<script src="..."></script>` tag.
+You can add Meiosis to your HTML page by downloading the JavaScript file from the [Meiosis builds](http://meiosis.js.org/builds) page. Save it to your project, and load it with a `<script src="..."></script>` tag.
 
 You can then access Meiosis using the global variable `meiosis`.
 
@@ -52,7 +52,7 @@ import meiosis from "meiosis";
 or even:
 
 ```javascript
-import { init } from "meiosis";
+import { createComponent, run } from "meiosis";
 ```
 
 You are ready to use Meiosis.
