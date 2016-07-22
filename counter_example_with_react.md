@@ -34,34 +34,32 @@ var view = function(model, propose) {
 };
 ```
 
-This time, the function accepts the model **and** the `propose` function because React makes it easy to bind event handlers to view elements. We call `propose` in the same way as we did previously. However, because we've attached the event handlers here, we won't be needing a `ready` function.
+This time, the function accepts the model **and** the `propose` function. React makes it easy to bind event handlers to view elements. We call `propose` in the same way. Because we've attached the event handlers here, we won't be needing a `ready` function.
 
 ## Specifying a Renderer
 
 We'll specify the React renderer:
 
 ```javascript
-var Meiosis = meiosis.init(meiosisReact.renderer.intoId("app"));
+var renderer = meiosisReact.renderer();
 ```
-
-Remember that we're initializing Meiosis a renderer and telling it to render into the element with the `app` id, which is a `<div>` on our HTML page.
 
 ## Running Meiosis
 
-Having initialized Meiosis, we can create the component:
+We can now create the component:
 
 ```javascript
-var Main = Meiosis.createComponent({
+var Main = meiosis.createComponent({
   initialModel: initialModel,
   view: view,
   receive: receive
 });
 ```
 
-The `initialModel` and `receive` functions are the same as the ones we had from the previous chapter. Only the `view` has changed, to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function. We're ready to run Meiosis:
+The `initialModel` and `receive` functions are the same as the ones we had from the previous chapter. The `view` has changed to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function. We're ready to run Meiosis:
 
 ```javascript
-Meiosis.run(Main);
+meiosis.run(renderer.intoId(document, "app"), Main);
 ```
 
 Our counter works.
@@ -95,13 +93,15 @@ var receive = function(model, proposal) {
   return { counter: model.counter + proposal.add };
 };
 
-var Main = Meiosis.createComponent({
+var renderer = meiosisReact.renderer();
+
+var Main = meiosis.createComponent({
   initialModel: initialModel,
   view: view,
   receive: receive
 });
 
-Meiosis.run(Main);
+meiosis.run(renderer.intoId(document, "app"), Main);
 ```
 
 You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
