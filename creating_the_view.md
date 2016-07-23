@@ -13,7 +13,7 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 - [Snabbdom](http://github.com/paldepind/snabbdom)
 - [Vue](http://vuejs.org)
 
-Implementing a renderer for other libraries is easy. Refer to the [as yet unwritten] *Implementing a Renderer* chapter.
+Implementing a renderer for other libraries is easy. Refer to the [Renderers](renderers.md) section.
 
 To specify the React renderer, you would write:
 

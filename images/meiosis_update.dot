@@ -1,6 +1,7 @@
 digraph meiosis_update {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
     \l  actions: function(propose) \{ ... \},
+    \l  setup: function(actions/propose) \{ ... \},
     \l  view: function(model, actions/propose) \{ ... \},
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},

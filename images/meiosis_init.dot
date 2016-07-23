@@ -1,6 +1,7 @@
 digraph meiosis_init {
   createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
     \l  actions: function(propose) \{ ... \},
+    \l  setup: function(actions/propose) \{ ... \},
     \l  view: function(model, actions/propose) \{ ... \},
     \l  postRender: function(view) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},
@@ -8,6 +9,7 @@ digraph meiosis_init {
     \l  nextAction: function(model, proposal, actions/propose) \{ ... \}
     \l\});\l\l"]
 
+  setup [label = "setup(actions/propose)", fontname=Hack]
   initialModel [fontname=Hack]
   view [label = "view(model, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
@@ -16,7 +18,8 @@ digraph meiosis_init {
 
   {rank=same; render postRender ready}
 
-  createComponent -> initialModel [arrowhead=none, arrowtail=empty, color=white]
+  createComponent -> setup [arrowhead=none, arrowtail=empty, color=white]
+  setup -> initialModel
   initialModel -> view [label = " model"]
   view -> render [label = " view"]
   render -> postRender
