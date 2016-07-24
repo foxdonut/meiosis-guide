@@ -15,10 +15,10 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 
 Implementing a renderer for other libraries is easy. Refer to the [Renderers](renderers.md) section.
 
-To specify the React renderer, you would write:
+To specify the React renderer, write:
 
 ```javascript
-var Meiosis = meiosis.init(meiosisReact.renderer.intoId("app"));
+var renderer = meiosisReact.renderer().intoId(document, "app");
 ```
 
 Then, you just need a container with the `"app"` id in your HTML page:
@@ -31,13 +31,13 @@ Meiosis will render the view into that `div`.
 
 ## Creating a `view` Function
 
-Each component that you create can have a `view` function. Meiosis calls it with `(model, propose)` so that you can return the view representation of the model, and call the `propose` function.
+Each component that you create can have a `view` function. Meiosis calls it with `(model, propose/actions)` so that you can return the view representation of the model, and call the `propose` function. If you created an `actions` object, that will be passed as a parameter instead. The view can then call functions on it.
 
 The nature of what you return from the `view` function depends on the view library that you chose for your views. Whether you chose React, Snabbdom, Mithril, plain JavaScript, or anything else, you return an object that is compatible with the chosen library.
 
 ## Nested components
 
-When you call `Meiosis.createComponent({...})`, the returned component is the view function with `propose` already provided. Thus it is a function of the model that you can call from other components.
+When you call `meiosis.createComponent({...})`, the returned component is the view function with `propose` already provided. Thus it is a function of the model that you can call from other components.
 
 The [todo-list example](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list) has a `TodoMain` component that uses two other components, `TodoForm` and `TodoList`:
 
@@ -47,7 +47,7 @@ import todoListConfig from "./todoList/main";
 import todoFormConfig from "./todoForm/main";
 
 export default function(Meiosis) {
-  const createComponent = Meiosis.createComponent;
+  const createComponent = meiosis.createComponent;
 
   const TodoList = createComponent(todoListConfig);
   const TodoForm = createComponent(todoFormConfig);

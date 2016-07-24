@@ -2,7 +2,7 @@
 
 As we saw in the counter example from the previous chapters, Meiosis passes `propose` to your `view` and `ready` functions. You can call `propose` to trigger a proposal. Your `receive` function gets called with the proposal and decides how to change the model.
 
-## Updates: Data or Actions?
+## Proposals
 
 In the counter example, the *proposal* that we send is `{ add: 1 }`. The `receive` function then adds that value to the counter.
 
@@ -24,7 +24,7 @@ In any case, you might prefer to hide the details of proposals from the view. Fo
 
 You can create the `actions` object to encapsulate the details of how you construct proposals. You might prefer having these specific functions for your actions, instead of just one generic `propose` function. Further, you might decide to encapsulate calls to services (AJAX calls, for example) within these actions.
 
-This allows to encapsulate the details of what proposal to send, in named functions that the view can call directly. In the counter example, this would mean calling functions like `actions.increaseCounter()` and `actions.decreaseCounter()` instead of `propose({ add: 1 })`.
+This allows to encapsulate the details of what proposal to send. The view can call named functions directly. In the counter example, this would mean calling functions like `actions.increaseCounter()` and `actions.decreaseCounter()` instead of `propose({ add: 1 })`.
 
 To create the `actions` object, simply write a function that accepts `propose` as a parameter and returns an object with the actions that you wish to make available. For example:
 
