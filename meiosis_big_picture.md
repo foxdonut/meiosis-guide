@@ -12,6 +12,7 @@ Again, every piece is optional. If you do not specify a particular property, ski
 
 As you can see, this is what happens initially:
 
+- If there is a `setup` function, it is called with either the `actions` object or the `propose` function.
 - The `initialModel` is passed to the `view`.
 - Meiosis also passes either the `actions` object or the `propose` function to the `view` function.
 - Meiosis takes the view returned by the `view` function and renders it. Specify the renderer when calling the `meiosis.run` function.
@@ -34,4 +35,4 @@ When you call `propose`:
 - If there is a `postRender` function, it gets called with the view.
 - If there is a `nextAction` function, Meiosis calls it with the model, proposal, and `actions` object or `propose` function. The `nextAction` function decides whether to trigger another action by calling `propose`.
 
-These diagrams are a cheat-sheet that you can return to for reference. In the following chapters, we'll discuss each property that you can pass to `Meiosis.createComponent` in more detail.
+These diagrams are a cheat-sheet that you can return to for reference. In the following chapters, we'll discuss each property that you can pass to `meiosis.createComponent` in more detail.
