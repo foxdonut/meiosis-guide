@@ -23,7 +23,7 @@ digraph meiosis_update {
   trigger -> propose [label = " calls"]
   propose -> receive [label = " proposal"]
   receive -> view [label = " model"]
-  view -> render [label = " view"]
+  view -> render [label = " model, view"]
   render -> postRender
   postRender -> nextAction
   nextAction -> propose [label = " calls"]

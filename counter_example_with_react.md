@@ -1,6 +1,6 @@
 # Counter Example with React
 
-Let's look at the same simple counter example as in [the previous chapter](counter_example_with_jquery.md), this time with React.
+Let's look at the same simple counter example as in [the previous section](counter_example_with_jquery.md), this time with React.
 
 You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
 
@@ -12,15 +12,15 @@ The model for the counter is the same:
 var initialModel = { counter: 0 };
 ```
 
-As you might expect, the view function is different. Since we're using React, we'll use JSX to render the view (although JSX is *not* required to use React; one example is [JSnoX](https://github.com/af/JSnoX).)
+As you might expect, the view function is different. Since we're using React, we'll use JSX to render the view. JSX is *not* required to use React; one example of an alternative is [JSnoX](https://github.com/af/JSnoX).
 
 ```javascript
 var view = function(model, propose) {
   var onInc = function(_evt) {
-    propose({ add: 10 });
+    propose({ add: 2 });
   };
   var onDecr = function(_evt) {
-    propose({ add: -10 });
+    propose({ add: -2 });
   };
   return (
     <div>
@@ -34,9 +34,9 @@ var view = function(model, propose) {
 };
 ```
 
-This time, the function accepts the model **and** the `propose` function. React makes it easy to bind event handlers to view elements. We call `propose` in the same way. Because we've attached the event handlers here, we won't be needing a `ready` function.
+This time, the function accepts the model *and* the `propose` function. React makes it easy to bind event handlers to view elements. We call `propose` in the same way. Because we've attached the event handlers here, we won't be needing a `ready` function.
 
-## Specifying a Renderer
+## Specifying the Renderer
 
 We'll specify the React renderer:
 
@@ -44,7 +44,7 @@ We'll specify the React renderer:
 var renderer = meiosisReact.renderer();
 ```
 
-## Running Meiosis
+## Creating the Component
 
 We can now create the component:
 
@@ -56,13 +56,17 @@ var Main = meiosis.createComponent({
 });
 ```
 
-The `initialModel` and `receive` functions are the same as the ones we had from the previous chapter. The `view` has changed to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function. We're ready to run Meiosis:
+The `initialModel` and `receive` functions are the same as the ones we had from the previous example. The `view` has changed to use React. Because we are attaching event handlers using React's `onClick` in the view, we don't need a `ready` function.
+
+## Running Meiosis
+
+We're ready to run Meiosis:
 
 ```javascript
 meiosis.run(renderer.intoId(document, "app"), Main);
 ```
 
-Our counter works.
+Our counter now works with React.
 
 ## Try it out
 

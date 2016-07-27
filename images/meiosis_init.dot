@@ -21,7 +21,7 @@ digraph meiosis_init {
   createComponent -> setup [arrowhead=none, arrowtail=empty, color=white]
   setup -> initialModel
   initialModel -> view [label = " model"]
-  view -> render [label = " view"]
+  view -> render [label = " model, view"]
   render -> postRender
   postRender -> ready
 }

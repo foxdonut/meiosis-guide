@@ -54,7 +54,7 @@ var Main = createComponent({
 })
 ```
 
-Now, instead of `propose`, the `view` and `ready` functions will be given the  `actions` object and be able to call `increaseCounter`, `decreaseCounter`, and `addValue`.
+Now, instead of `propose`, the `view` and `ready` functions will be given the  `actions` object and be able to call `actions.increaseCounter()`, `actions.decreaseCounter()`, and `actions.addValue(value)`.
 
 ## Examples
 
