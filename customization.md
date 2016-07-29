@@ -1,3 +1,0 @@
-# Customizing Meiosis
-
-Coming soon.
