@@ -55,4 +55,4 @@ or even:
 import { createComponent, run } from "meiosis";
 ```
 
-You are ready to use Meiosis.
+You are now ready to use Meiosis.
