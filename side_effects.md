@@ -19,7 +19,7 @@ Doing this is quite straightforward:
 }
 ```
 
-Notice how there is nothing out of the ordinary here. A first call to `propose` is made. Then we get the `loadTodos` response and make another call to `propose`.
+Notice that there is nothing out of the ordinary here. A first call to `propose` is made. Then we get the `loadTodos` response and make another call to `propose`.
 
 ## Performing Initial Actions
 
