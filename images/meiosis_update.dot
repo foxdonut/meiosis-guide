@@ -3,7 +3,7 @@ digraph meiosis_update {
     \l  actions: function(propose) \{ ... \},
     \l  setup: function(actions/propose) \{ ... \},
     \l  view: function(model, actions/propose) \{ ... \},
-    \l  postRender: function(view) \{ ... \},
+    \l  postRender: function(model) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},
     \l  receive: function(model, proposal) \{ ... \},
     \l  nextAction: function(model, proposal, actions/propose) \{ ... \}
@@ -14,7 +14,7 @@ digraph meiosis_update {
   receive [label = "receive(model, proposal)", fontname=Hack]
   view [label = "view(model, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
-  postRender [label = "postRender(view)", fontname=Hack]
+  postRender [label = "postRender(model)", fontname=Hack]
   nextAction [label = "nextAction(model, proposal, actions/propose)", fontname=Hack]
 
   {rank=same; render postRender nextAction}
