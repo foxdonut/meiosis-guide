@@ -2,11 +2,11 @@
 
 Meiosis is a *small*, *dependency-free* library that helps you organize the data flow of your web applications. It is a UWYL library - Use What You Like! Meiosis works with:
 
-- React
-- Virtual DOM libraries (Snabbdom, Mithril, ...)
-- Reactive template libraries (Vue, Riot, ...)
-- jQuery
-- Or just plain Vanilla JS!
+- [React](https://facebook.github.io/react/),  [Inferno](http://github.com/trueadm/inferno)
+- [Snabbdom](http://github.com/paldepind/snabbdom), [Mithril](http://mithril.js.org)
+- [Vue](http://vuejs.org), [Riot](http://riotjs.com)
+- [jQuery](http://jquery.com)
+- Or just plain [Vanilla JS](http://vanilla-js.com)!
 
 You choose what you like to use for creating views. Meiosis organizes how the data flows in your application by:
 

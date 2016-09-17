@@ -14,6 +14,7 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 
 - VanillaJS, [meiosis-vanillajs](https://github.com/foxdonut/meiosis-vanillajs) (String concatenation or template engines such as [Handlebars](http://handlebarsjs.com)
 - [React](https://facebook.github.io/react/), [meiosis-react](https://github.com/foxdonut/meiosis-react)
+- [Inferno](http://github.com/trueadm/inferno), [meiosis-inferno](https://github.com/foxdonut/meiosis-inferno)
 - [Snabbdom](http://github.com/paldepind/snabbdom), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom)
 - [Mithril](http://mithril.js.org), [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril)
 - [Vue](http://vuejs.org), [meiosis-vue](https://github.com/foxdonut/meiosis-vue)
@@ -38,13 +39,13 @@ Meiosis will render the view into that `div`. Of course, you can use a different
 - `intoSelector(document, selector)` for example, `".container"` with `<div class="container"></div>`
 - `intoElement(document, element)` where you specify the DOM element directly. In fact, `intoId` and `intoSelector` are merely convenience functions that call `document.getElementById` and `document.querySelector` respectively, and pass the element to `intoElement`.
 
-The VanillaJS, Snabbdom, and Mithril renderers work in the same manner. The Vue and Riot renderers work slightly differently. We will see them in the [Setup Function](setup.md) section.
+The VanillaJS, Inferno, Snabbdom, and Mithril renderers work in the same manner. The Vue and Riot renderers work slightly differently. We will see them in the [Setup Function](setup.md) section.
 
 ## Creating a `view` Function
 
 Each component that you create can have a `view` function. Meiosis calls it with `(model, propose/actions)` so that you can return the view representation of the model, and call the `propose` function. If you created an `actions` object, that will be passed as a parameter instead. The view can then call functions on it.
 
-The nature of what you return from the `view` function depends on the view library that you chose for your views. Whether you use React, Snabbdom, Mithril, plain JavaScript, or anything else, you return an object that is compatible with the chosen library.
+The nature of what you return from the `view` function depends on the view library that you chose for your views. Whether you use React, Inferno, Snabbdom, Mithril, plain JavaScript, or anything else, you return an object that is compatible with the chosen library.
 
 ## Nested components
 

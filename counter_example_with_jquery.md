@@ -2,7 +2,7 @@
 
 To give you a more concrete idea of Meiosis, let's look at a quick example. We'll create a simple counter with buttons to increase and decrease the value.
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Snabbdom, Mithril, Vue, and Riot. In fact, we'll look at the same example with React in the next section.
+You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Inferno, Snabbdom, Mithril, Vue, and Riot. In fact, we'll look at the same example with React in the next section.
 
 ## Creating a Model and a View
 
@@ -25,7 +25,7 @@ The function accepts the model as a parameter and returns the view. The view dis
 
 -----
 
-Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views. Virtual DOM libraries such React, Snabbdom, and Mithril. Reactive template libraries such as Vue and Riot. Templating engines such as Handlebars. Or anything else. We'll switch to React in the next section. The point is, you don't *need* to use any particular library. If creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
+Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views. Virtual DOM libraries such React, Inferno, Snabbdom, and Mithril. Reactive template libraries such as Vue and Riot. Templating engines such as Handlebars. Or anything else. We'll switch to React in the next section. The point is, you don't *need* to use any particular library. If creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
 
 -----
 
@@ -35,6 +35,7 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 
 - VanillaJS, [meiosis-vanillajs](https://github.com/foxdonut/meiosis-vanillajs) (String concatenation or template engines such as [Handlebars](http://handlebarsjs.com)
 - [React](https://facebook.github.io/react/), [meiosis-react](https://github.com/foxdonut/meiosis-react)
+- [Inferno](http://github.com/trueadm/inferno), [meiosis-inferno](https://github.com/foxdonut/meiosis-inferno)
 - [Snabbdom](http://github.com/paldepind/snabbdom), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom)
 - [Mithril](http://mithril.js.org), [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril)
 - [Vue](http://vuejs.org), [meiosis-vue](https://github.com/foxdonut/meiosis-vue)
