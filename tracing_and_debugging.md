@@ -4,6 +4,13 @@
 
 <img src="images/tracer-1.png"/>
 
+## Chrome DevTools Extension
+
+Meiosis-Tracer is available as a Chrome DevTools Extension. You can add it to Chrome by
+[getting it from the Chrome Web Store](https://chrome.google.com/webstore/detail/meiosis-tracer/dkopklbedmgjejahhfkfklpkgdnigjii). Once added, open DevTools and use the Meiosis tab to use the tracer.
+
+Using Meiosis-Tracer as an extension is convenient. If you do not wish to install the extension, or if you are not using Chrome, you can still use the tracer by adding it to your app's page. Follow the instructions below to do so.
+
 ## Adding a Container Element
 
 First, add an HTML element to your page where you want to render the tracer. Give a way to identify it via a selector. For example:
