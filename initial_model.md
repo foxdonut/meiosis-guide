@@ -1,10 +1,12 @@
 # Initial Model
 
-When you create a component, you can set its initial model with the `initialModel` property. Like all properties for `meiosis.createComponent`, it is optional. However, you do need at least one component with an `initialModel` property.
+When you launch Meiosis by calling the `run` function, you can set the initial model of your application with the `initialModel` property. If you do not, Meiosis will automatically use an empty object `{}` as the initial model.
+
+When you create a component, *augment* the initial model with the `initialModel` property. Like all properties for `meiosis.createComponent`, it is optional.
 
 ## Using a Single Initial Model
 
-If you have only one component with an `initialModel` property, it becomes the initial single root model. In that case, the property can be the initial model object. It can also be a function that returns the initial model object.
+If you have only one `initialModel` property, it becomes the initial single root model. In that case, the property can be specified when calling the `run` function. It can also be passed when calling `createComponent`; in that case, it must be a function that returns the initial model object.
 
 ## Using Multiple Initial Models
 
