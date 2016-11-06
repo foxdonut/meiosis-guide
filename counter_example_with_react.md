@@ -50,7 +50,6 @@ We can now create the component:
 
 ```javascript
 var Main = meiosis.createComponent({
-  initialModel: initialModel,
   view: view,
   receive: receive
 });
@@ -63,7 +62,11 @@ The `initialModel` and `receive` functions are the same as the ones we had from 
 We're ready to run Meiosis:
 
 ```javascript
-meiosis.run(renderer.intoId(document, "app"), Main);
+meiosis.run({
+  renderer: renderer.intoId(document, "app"),
+  initialModel: initialModel,
+  rootComponent: Main
+});
 ```
 
 Our counter now works with React.
@@ -100,12 +103,15 @@ var receive = function(model, proposal) {
 var renderer = meiosisReact.renderer();
 
 var Main = meiosis.createComponent({
-  initialModel: initialModel,
   view: view,
   receive: receive
 });
 
-meiosis.run(renderer.intoId(document, "app"), Main);
+meiosis.run({
+  renderer: renderer.intoId(document, "app"),
+  initialModel: initialModel,
+  rootComponent: Main
+});
 ```
 
 You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
