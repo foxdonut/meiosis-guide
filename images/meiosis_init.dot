@@ -1,27 +1,27 @@
 digraph meiosis_init {
-  createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: \{ ... \},
+  createComponent [fontname=Hack, label = "\lMeiosis.createComponent(\{\l\ \ initialModel: function(model) \{ ... \},
+    \l  state: function(model, state) \{ ... \},
     \l  actions: function(propose) \{ ... \},
-    \l  setup: function(actions/propose) \{ ... \},
-    \l  view: function(model, actions/propose) \{ ... \},
-    \l  postRender: function(model) \{ ... \},
+    \l  view: function(state, actions/propose) \{ ... \},
+    \l  postRender: function(state) \{ ... \},
     \l  ready: function(actions/propose) \{ ... \},
     \l  receive: function(model, proposal) \{ ... \},
     \l  nextAction: function(model, proposal, actions/propose) \{ ... \}
     \l\});\l\l"]
 
-  setup [label = "setup(actions/propose)", fontname=Hack]
-  initialModel [fontname=Hack]
-  view [label = "view(model, actions/propose)", fontname=Hack]
+  initialModel [label="initialModel(model)", fontname=Hack]
+  state [label = "state(model, state)", fontname=Hack]
+  view [label = "view(state, actions/propose)", fontname=Hack]
   render [style=filled, color=lightgreen]
-  postRender [label = "postRender(model)", fontname=Hack]
+  postRender [label = "postRender(state)", fontname=Hack]
   ready [label = "ready(actions/propose)", fontname=Hack]
 
   {rank=same; render postRender ready}
 
-  createComponent -> setup [arrowhead=none, arrowtail=empty, color=white]
-  setup -> initialModel
-  initialModel -> view [label = " model"]
-  view -> render [label = " model, view"]
+  createComponent -> initialModel [arrowhead=none, arrowtail=empty, color=white]
+  initialModel -> state [label = " model"]
+  state -> view [label = " state"]
+  view -> render [label = " state, view"]
   render -> postRender
   postRender -> ready
 }
