@@ -2,10 +2,10 @@
 
 You can install Meiosis in a variety of ways:
 
-- using a plain `<script>` tag in your HTML page
-- using [Bower](http://bower.io/)
-- using [RequireJS](http://requirejs.org)
-- using the [Node.js](https://nodejs.org) package manager, [npm](https://www.npmjs.com/)
+- Using a plain `<script>` tag in your HTML page
+- Using [Bower](http://bower.io/)
+- Using [RequireJS](http://requirejs.org)
+- Using the [Node.js](https://nodejs.org) package manager, [npm](https://www.npmjs.com/)
 
 Let's look at each option in more detail.
 
