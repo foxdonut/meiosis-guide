@@ -48,7 +48,6 @@ Then, specify the function when creating the component:
 
 ```javascript
 var Main = createComponent({
-  initialModel: ...,
   view: ...,
   actions: actions
 })
