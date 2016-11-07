@@ -8,3 +8,4 @@ With Meiosis you can specify a `state` property when calling the `run` function.
 
 Similarly to `initialModel`, the `state` function can be specified in `run` as well as in `createComponent`. Just as with `initialModel`, for the `state` function `run` is the starting point and `createComponent` gives each component the possibility to *augment* the application state.
 
+When you specify a `state` function in `createComponent`, it gets passed the model and the state. Remember that the starting point for the state is the function passed to `run`. Each component then adds more computed properties to the state, and returns it.
