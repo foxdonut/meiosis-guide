@@ -50,21 +50,6 @@ The `intoElement` function takes an element and returns a function that renders 
 
 Then, `renderer` is a function that returns the renderer. For convenience, we pass the `intoElement` function to `meiosisRender` and get back `intoElement` along with `intoId` and `intoSelector`.
 
-For other examples, see: [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom), [meiosis-vanillajs](https://github.com/foxdonut/meiosis-vanillajs), and
-[meiosis-riot](https://github.com/foxdonut/meiosis-riot).
-
-## The Meiosis-Vue Renderer
-
-Since Vue is a reactive template library, its [renderer](https://github.com/foxdonut/meiosis-vue) works differently. We don't re-render a view ourselves. Instead, we use `Vue.set()` to set the model, and Vue automatically takes care of re-rendering the view. The renderer is very simple:
-
-```javascript
-import Vue from "vue";
-
-const renderer = (data, key) => model => Vue.set(data, key, JSON.parse(JSON.stringify(model[key])));
-
-export { renderer };
-```
-
-From the top-level `data` object and the root `key` property, we return the renderer function. Notice that although that function is given the `model` and `rootComponent` from Meiosis, we only need the `model` here. Refreshing the view is just a matter of calling `Vue.set()` on the data, with the key and the model. Because the model is made observable by Vue, we can't pass it directly. We need to serialize it by stringifying it and parsing it back.
+For other examples, see: [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom), and [meiosis-vanillajs](https://github.com/foxdonut/meiosis-vanillajs).
 
 As you can see, implementing a renderer is not difficult. The code just needs to use the view library to re-render the view from the model and root component.
