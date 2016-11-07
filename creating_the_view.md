@@ -2,12 +2,6 @@
 
 In Meiosis, the `view` function returns a view object that corresponds to the library of your choice. It could be a plain string, JSX, a hyperscript object, and so on.
 
------
-
-When using reactive template libraries such as [Vue](http://vuejs.org) or [Riot](http://riotjs.com), using the `view` function is not necessary. Indeed, these libraries create components themselves, instead of returning a representation of the component. To create those components, use the `setup` function instead of `view`. We will see the `setup` function in the [next section](setup.md).
-
------
-
 ## Specifying a Renderer
 
 The way you tell Meiosis how you want to create your views is by specifying a *renderer*. Meiosis currently provides renderers for:
@@ -17,8 +11,6 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 - [Inferno](http://github.com/trueadm/inferno), [meiosis-inferno](https://github.com/foxdonut/meiosis-inferno)
 - [Snabbdom](http://github.com/paldepind/snabbdom), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom)
 - [Mithril](http://mithril.js.org), [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril)
-- [Vue](http://vuejs.org), [meiosis-vue](https://github.com/foxdonut/meiosis-vue)
-- [Riot](http://riotjs.com), [meiosis-riot](https://github.com/foxdonut/meiosis-riot)
 
 Implementing a renderer for other libraries is easy. Refer to the [Renderers](renderers.md) section.
 
@@ -39,7 +31,7 @@ Meiosis will render the view into that `div`. Of course, you can use a different
 - `intoSelector(document, selector)` for example, `".container"` with `<div class="container"></div>`
 - `intoElement(document, element)` where you specify the DOM element directly. In fact, `intoId` and `intoSelector` are merely convenience functions that call `document.getElementById` and `document.querySelector` respectively, and pass the element to `intoElement`.
 
-The VanillaJS, Inferno, Snabbdom, and Mithril renderers work in the same manner. The Vue and Riot renderers work slightly differently. We will see them in the [Setup Function](setup.md) section.
+The VanillaJS, Inferno, Snabbdom, and Mithril renderers work in the same manner.
 
 ## Creating a `view` Function
 
