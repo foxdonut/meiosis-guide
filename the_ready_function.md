@@ -1,6 +1,6 @@
 # The Ready Function
 
-With virtual DOM libraries such as [React](https://facebook.github.io/react), [Inferno](http://github.com/trueadm/inferno), [Snabbdom](https://github.com/paldepind/snabbdom), [Mithril](http://mithril.js.org), and [others](http://vdom-benchmark.github.io/vdom-benchmark/), it is often easy to attach handlers from the view function. The same can be said about reactive template libraries such as [Vue](http://vuejs.org) and [Riot](http://riotjs.com). However, when returning plain HTML strings, for example from string concatenation, jQuery, or templating engines, it is convenient to attach handlers when the initial document is ready. For this and other code you need to run **only once** after rendering the initial view, use the Meiosis `ready` function.
+With virtual DOM libraries such as [React](https://facebook.github.io/react), [Inferno](http://github.com/trueadm/inferno), [Snabbdom](https://github.com/paldepind/snabbdom), [Mithril](http://mithril.js.org), and [others](http://vdom-benchmark.github.io/vdom-benchmark/), it is often easy to attach handlers from the view function. However, when returning plain HTML strings, for example from string concatenation, jQuery, or templating engines, it is convenient to attach handlers when the initial document is ready. For this and other code you need to run **only once** after rendering the initial view, use the Meiosis `ready` function.
 
 ## Examples
 
