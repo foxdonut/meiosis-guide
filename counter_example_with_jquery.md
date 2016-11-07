@@ -2,7 +2,7 @@
 
 To give you a more concrete idea of Meiosis, let's look at a quick example. We'll create a simple counter with buttons to increase and decrease the value.
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Inferno, Snabbdom, Mithril, Vue, and Riot. In fact, we'll look at the same example with React in the next section.
+You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Inferno, Mithril, and Snabbdom. In fact, we'll look at the same example with React in the next section.
 
 ## Creating a Model and a View
 
@@ -25,7 +25,7 @@ The function accepts the model as a parameter and returns the view. The view dis
 
 -----
 
-Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views. Virtual DOM libraries such React, Inferno, Snabbdom, and Mithril. Reactive template libraries such as Vue and Riot. Templating engines such as Handlebars. Or anything else. We'll switch to React in the next section. The point is, you don't *need* to use any particular library. If creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
+Now, don't run away screaming *HTML with string concatenation! OH NOES!* You can use whatever you like to create views. Virtual DOM libraries such React, Inferno, Snabbdom, and Mithril work especially well with Meiosis. We'll switch to React in the next section. The point is, you don't *need* to use any particular library. If creating the HTML from simple string concatenation suits your needs, that is fine with Meiosis.
 
 -----
 
@@ -38,10 +38,8 @@ The way you tell Meiosis how you want to create your views is by specifying a *r
 - [Inferno](http://github.com/trueadm/inferno), [meiosis-inferno](https://github.com/foxdonut/meiosis-inferno)
 - [Snabbdom](http://github.com/paldepind/snabbdom), [meiosis-snabbdom](https://github.com/foxdonut/meiosis-snabbdom)
 - [Mithril](http://mithril.js.org), [meiosis-mithril](https://github.com/foxdonut/meiosis-mithril)
-- [Vue](http://vuejs.org), [meiosis-vue](https://github.com/foxdonut/meiosis-vue)
-- [Riot](http://riotjs.com), [meiosis-riot](https://github.com/foxdonut/meiosis-riot)
 
-Implementing a renderer for other libraries is easy. Refer to the [Renderers](renderers.md) section.
+Implementing a renderer for other libraries is easy. Refer to the [Renderers](renderers.md) section for more details.
 
 Let's specify the Vanilla JS renderer for our counter example:
 
@@ -55,19 +53,22 @@ Next, we'll create a component:
 
 ```javascript
 var Main = meiosis.createComponent({
-  initialModel: initialModel,
   view: view
 });
 ```
 
-The `createComponent` function accepts several properties, all of which are optional. Here, we've indicated the `initialModel` and the `view` function.
+The `createComponent` function accepts several properties, all of which are optional. Here, we've indicated the `view` function.
 
 ## Running Meiosis
 
 The `Main` component that we've created is also the *root*, or *top-level*, component of our application. We need to pass the renderer and the root component to `meiosis.run` to start Meiosis:
 
 ```javascript
-meiosis.run(renderer.intoId(document, "app"), Main);
+meiosis.run({
+  renderer: renderer.intoId(document, "app"),
+  initialModel: initialModel,
+  rootComponent: Main
+});
 ```
 
 We've told the renderer to render into the element with the `app` id of the document. We just need a container with that id in our HTML page:
@@ -105,7 +106,6 @@ Meiosis passes the `propose` function to the `ready` function. We use it to send
 
 ```javascript
 var Main = Meiosis.createComponent({
-  initialModel: initialModel,
   view: view,
   ready: ready
 });
@@ -129,7 +129,6 @@ We pass the `receive` function to `createComponent`:
 
 ```javascript
 var Main = Meiosis.createComponent({
-  initialModel: initialModel,
   view: view,
   ready: ready,
   receive: receive
@@ -166,7 +165,6 @@ var ready = function(propose) {
 };
 
 var Main = meiosis.createComponent({
-  initialModel: initialModel,
   view: view,
   ready: ready,
   receive: receive
@@ -174,7 +172,11 @@ var Main = meiosis.createComponent({
 
 var renderer = meiosisVanillaJs.renderer();
 
-meiosis.run(renderer.intoId(document, "app"), Main);
+meiosis.run({
+  renderer: renderer.intoId(document, "app"),
+  initialModel: initialModel,
+  rootComponent: Main
+});
 ```
 
 You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
