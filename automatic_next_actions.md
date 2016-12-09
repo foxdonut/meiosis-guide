@@ -2,18 +2,18 @@
 
 After propose - receive - model - render view has completed, you might want to trigger another proposal automatically. You would decide depending on the last proposal and the resulting model.
 
-To add a function that can trigger an automatic next action, use the `nextAction` property when creating a component. Meiosis passes the `model`, `proposal`, and either `propose` or the `actions` object to the function.
+To add a function that can trigger an automatic next action, use the `nextAction` property when creating a component. Meiosis passes a single object parameter with the `model`, `proposal`, and either `propose` or the `actions` object to the function.
 
 In the [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher) example, the `nextAction` function keeps the countdown going or launches the rocket:
 
 ```javascript
-ref.nextAction = function(model, proposal, actions) {
-  if (ref.state.counting(model)) {
-    if (model.counter > 0) {
-      actions.decrement(model.counter);
+ref.nextAction = function(context) {
+  if (ref.state.counting(context.model)) {
+    if (context.model.counter > 0) {
+      context.actions.decrement(context.model.counter);
     }
-    else if (model.counter === 0) {
-      actions.launch();
+    else if (context.model.counter === 0) {
+      context.actions.launch();
     }
   }
 };
@@ -32,4 +32,6 @@ Meiosis calls the `nextAction` after `receive` has completed and the view has re
 
 ## Examples
 
-The [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher) example uses a `nextAction` function.
+The [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher),
+[temperatures](https://github.com/foxdonut/meiosis-examples/tree/master/examples/temperatures), and
+[todo-list](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list) examples use a `nextAction` function.
