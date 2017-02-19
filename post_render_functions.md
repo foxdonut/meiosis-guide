@@ -4,4 +4,4 @@ Sometimes, you might need to run some code after every render of the view. If yo
 
 ## Examples
 
-The [VanillaJs TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc/vanillajs) and [jQuery TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc/jquery) examples use a `postRender` function to give focus to the text input which appears when the user double-clicks on a todo.
+The [VanillaJs TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc/vanillajs) and [jQuery TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc/jquery) examples use a `postRender` function to give focus to the text input which appears when the user double-clicks on a todo.

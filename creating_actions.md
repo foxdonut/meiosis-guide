@@ -57,4 +57,4 @@ Now, instead of `propose`, the `view` and `ready` functions will be given the  `
 
 ## Examples
 
-The [todomvc](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc), [todo-list](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list), and [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher) examples create `actions` objects.
+The [todomvc](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc), [todo-list](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todo-list), and [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/rocket-launcher) examples create `actions` objects.

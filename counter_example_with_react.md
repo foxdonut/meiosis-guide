@@ -2,7 +2,7 @@
 
 Let's look at the same simple counter example as in [the previous section](counter_example_with_jquery.md), this time with React.
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
+You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/counter) repository.
 
 ## Creating a Model and a View
 
@@ -114,4 +114,4 @@ meiosis.run({
 });
 ```
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
+You can run this example online [here](http://codepen.io/foxdonut/pen/OXJXmv?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/counter) repository.

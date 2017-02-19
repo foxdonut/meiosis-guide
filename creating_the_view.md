@@ -43,7 +43,7 @@ The nature of what you return from the `view` function depends on the view libra
 
 When you call `meiosis.createComponent({...})` with a `view` function, the returned component is the view function with `propose` or `actions` already provided. Thus it is a function of the model that you can call from other components.
 
-The [todo-list example](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list) has a component that uses two other components, `todoForm` and `todoList`:
+The [todo-list example](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todo-list) has a component that uses two other components, `todoForm` and `todoList`:
 
 ```javascript
 import React from "react";

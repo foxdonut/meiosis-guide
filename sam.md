@@ -8,4 +8,4 @@ This should sound familiar because Meiosis works in essentially the same way. Ca
 
 ## Rocket Launcher Example
 
-One of the examples for the SAM pattern is the [Rocket Launcher](https://bitbucket.org/snippets/jdubray/9dgKp/sam-sample). You will find the same example implemented with Meiosis in the [meiosis-examples repository](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher) and [online on CodePen](http://codepen.io/foxdonut/pen/pbJRrK?editors=1010), also [with React](http://codepen.io/foxdonut/pen/PzqOGG?editors=1010), and [with Snabbdom](http://codepen.io/foxdonut/pen/rLVRPR?editors=1010).
+One of the examples for the SAM pattern is the [Rocket Launcher](https://bitbucket.org/snippets/jdubray/9dgKp/sam-sample). You will find the same example implemented with Meiosis in the [meiosis-examples repository](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/rocket-launcher) and [online on CodePen](http://codepen.io/foxdonut/pen/pbJRrK?editors=1010), also [with React](http://codepen.io/foxdonut/pen/PzqOGG?editors=1010), and [with Snabbdom](http://codepen.io/foxdonut/pen/rLVRPR?editors=1010).

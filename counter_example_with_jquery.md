@@ -2,7 +2,7 @@
 
 To give you a more concrete idea of Meiosis, let's look at a quick example. We'll create a simple counter with buttons to increase and decrease the value.
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Inferno, Mithril, and Snabbdom. In fact, we'll look at the same example with React in the next section.
+You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/counter) repository. The example uses jQuery, but remember that Meiosis also works with React, Inferno, Mithril, and Snabbdom. In fact, we'll look at the same example with React in the next section.
 
 ## Creating a Model and a View
 
@@ -179,7 +179,7 @@ meiosis.run({
 });
 ```
 
-You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/master/examples/counter) repository.
+You can run this example online [here](http://codepen.io/foxdonut/pen/ezYgNo?editors=1010). You will also find it in the [meiosis-examples](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/counter) repository.
 
 This is the general idea behind Meiosis. The reactive loop consists of model - view - propose - receive. Meiosis does the wiring so that when you call `propose`, the `receive` function gets triggered. The new model is passed to `view`, which gets re-rendered by the renderer. You will find a more detailed explanation in [Meiosis: The Big Picture](meiosis_big_picture.md).
 

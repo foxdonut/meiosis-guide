@@ -4,4 +4,4 @@ With virtual DOM libraries such as [React](https://facebook.github.io/react), [I
 
 ## Examples
 
-The [VanillaJs TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc/vanillajs) and [jQuery TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc/jquery) examples use a `ready` function to attach event handlers. All of the examples also use `ready` to listen to location changes using the [history](https://github.com/ReactJSTraining/history) library.
+The [VanillaJs TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc/vanillajs) and [jQuery TodoMVC](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc/jquery) examples use a `ready` function to attach event handlers. All of the examples also use `ready` to listen to location changes using the [history](https://github.com/ReactJSTraining/history) library.

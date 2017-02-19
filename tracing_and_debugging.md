@@ -50,4 +50,4 @@ You can also enter your own model snapshot directly into the second text area. A
 
 ## Examples
 
-The [todomvc](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todomvc), [todo-list](https://github.com/foxdonut/meiosis-examples/tree/master/examples/todo-list), [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/master/examples/rocket-launcher), and [requirejs](https://github.com/foxdonut/meiosis-examples/tree/master/examples/requirejs) examples use Meiosis-Tracer.
+The [todomvc](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todomvc), [todo-list](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/todo-list), [rocket-laucher](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/rocket-launcher), and [requirejs](https://github.com/foxdonut/meiosis-examples/tree/v0.9.0/examples/requirejs) examples use Meiosis-Tracer.
