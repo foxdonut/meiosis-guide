@@ -1,5 +1,7 @@
 # What is Meiosis?
 
+PLEASE NOTE that Meiosis has changed starting with version 1.0.0. This guide applies only to version 0.9.x and is kept for reference purposes.
+
 Meiosis is a *small*, *dependency-free* library that helps you organize the data flow of your web applications. It is a UWYL library - Use What You Like! Meiosis works with:
 
 - [React](https://facebook.github.io/react/),  [Inferno](http://github.com/trueadm/inferno)
